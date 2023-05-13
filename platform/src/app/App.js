@@ -11,6 +11,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <div>
       <Header />
       <main>
         <Routes>
@@ -23,6 +24,7 @@ function App() {
           <Route path={ROUTES.Team} element={<TeamPage />} />
         </Routes>
       </main>
+      </div>
     </div>
   );
 }

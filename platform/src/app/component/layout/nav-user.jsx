@@ -1,14 +1,14 @@
 
-const NavUser = ({ className }) => {
+const NavUser = () => {
   return (
-    <div className={`${className}`}>
-      <ul className="navbar-nav">
-        <li class="nav-item dropdown">
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profiel</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Uitloggen</a></li>
+    <div className={``}>
+      <ul className="navbar navbar-expand-lg bg-body-tertiary">
+        <li className="nav-item">
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href="#">Profiel</a></li>
+            <li><a className="dropdown-item" href="#">Settings</a></li>
+            <li><hr className="dropdown-divider" /></li>
+            <li><a className="dropdown-item" href="#">Uitloggen</a></li>
           </ul>
         </li>
       </ul>

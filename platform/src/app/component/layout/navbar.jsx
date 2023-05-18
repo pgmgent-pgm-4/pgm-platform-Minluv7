@@ -31,13 +31,6 @@ const NavBar = () => {
             <Link className="nav-link" to={ROUTES.Team}>Team</Link>
             </li>
         </ul>
-        <ul className="dropdown-menu nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            <li> 
-            <Link className="dropdown-item">Test</Link>
-            </li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-        </ul>
     </nav>
     </>
   )

@@ -1,9 +1,13 @@
 
-const NavUser = () => {
+
+const NavUser = ({ className }) => {
   return (
-    <div className={``}>
-      <ul className="navbar navbar-expand-lg bg-body-tertiary">
-        <li className="nav-item">
+    <div className={`${className}`}>
+      <ul className="navbar-nav">
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Nese
+          </a>
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="#">Profiel</a></li>
             <li><a className="dropdown-item" href="#">Settings</a></li>

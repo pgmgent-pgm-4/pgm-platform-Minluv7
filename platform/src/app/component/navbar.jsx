@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // Import internal modules
-import { ROUTES } from '../../routes';
+import { ROUTES } from '../routes';
 
 const NavBar = () => {
   return (

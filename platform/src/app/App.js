@@ -10,11 +10,13 @@ import './App.css';
 import { ThemeToggle } from './component/theme-switts';
 import { ThemeProvider } from './context/theme.context';
 import { UserProvider } from './context/user.context';
+import { HygraphProvider } from './context/hygraph.context';
 
 function App() {
   return (
     <div className="App">
-     <UserProvider>
+      <HygraphProvider>
+      <UserProvider>
       <ThemeProvider>
       <div>
       <Header />
@@ -33,6 +35,7 @@ function App() {
       </div>
       </ThemeProvider>
       </UserProvider>
+      </HygraphProvider>
     </div>
   );
 }

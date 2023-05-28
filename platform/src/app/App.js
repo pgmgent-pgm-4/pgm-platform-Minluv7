@@ -2,7 +2,7 @@
 import {Routes, Route} from 'react-router-dom';
 import { Header } from './component';
 //import custom modules
-import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, BlogPage, SercivesPage, TeamPage} from './pages'
+import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage} from './pages'
 import { ROUTES } from './routes';
 
 //import styling
@@ -27,7 +27,10 @@ function App() {
           <Route path={ROUTES.Opleiding} element={<OpleidingPage />} />
           <Route path={ROUTES.Programma} element={<ProgrammaPage />} />
           <Route path={ROUTES.Werkstukken} element={<WerkstukkenPage />} />
-          <Route path={ROUTES.Blog} element={<BlogPage />} />
+          <Route path={ROUTES.Blog}>
+            <Route index element={<BlogPage />} />
+            <Route path=":postId" element={<BlogDetailsPage />} />
+          </Route>
           <Route path={ROUTES.Services} element={<SercivesPage />} />
           <Route path={ROUTES.Team} element={<TeamPage />} />
         </Routes>

@@ -4,6 +4,8 @@ export const ROUTES = {
     'Programma': '/programma',
     'Werkstukken': '/werkstukken',
     'Blog': '/blog',
+    'BlogDetail': '/blog/:postId',
     'Services': '/services',
     'Team': '/team'
 }
+

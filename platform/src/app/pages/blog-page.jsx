@@ -19,13 +19,7 @@ query GetAllBlogs {
       title
       slug
       body
-      image {
-        id
-        url
-      }
-      authUser{
-        userName
-      }
+      img
     }
   }
   `

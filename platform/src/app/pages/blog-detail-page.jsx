@@ -7,29 +7,25 @@ import { useFetch } from "../hooks";
 import { useEffect } from "react";
 import { useState } from "react";
 
+import { useThemeContext } from '../context/theme.context';
+
 const GET_BLOG = gql`
-query GetBlogById($postId: ID!) {
-    post(where: { id: $postId }) {
+query GetBlogById($postId: String!) {
+    post(where: { slug: $postId }) {
       id
       title
       slug
       body
-      image {
-        id
-        url
-      }
-      authUser {
-        userName
-      }
+      img
     }
   }
 `;
 
 const BlogDetailsPage = () => {
-
-  const { postId } = useParams();
+  const { isDarkMode } = useThemeContext();
+  const { postId} = useParams();
   const { loading, error, data } = useQuery(GET_BLOG, {
-    variables: {postId}
+    variables: { postId}
   });
 
   if (loading) {
@@ -46,15 +42,17 @@ const BlogDetailsPage = () => {
 
 
   return (
-    <>
+    <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
       <h1>Post Details</h1>
       {data.post && 
         <article>
              {loading ? <Spinner>LOADING</Spinner> : null}
           <h1>{data.post.title}</h1>
+          <img src={data.post.img} alt="" />
+          <p>{data.post.body}</p>
         </article>
       }
-    </>
+    </div>
   )
 };
 

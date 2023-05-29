@@ -6,6 +6,7 @@ import BlogPage from "./blog-page";
 import SercivesPage from "./services";
 import TeamPage from "./team-page";
 import BlogDetailsPage from './blog-detail-page'
+import ProgrammaDetailPage from "./programma-detail-page";
 
 export {
     HomePage,
@@ -15,5 +16,6 @@ export {
     BlogPage,
     SercivesPage,
     TeamPage,
-    BlogDetailsPage
+    BlogDetailsPage,
+    ProgrammaDetailPage
 }

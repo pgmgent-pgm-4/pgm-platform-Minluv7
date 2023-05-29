@@ -4,7 +4,7 @@ import BlogListRowItem from "./blog-list-row-item";
 const BlogListRow = ({posts, className}) => {
   return (
     <div className={`${className}`}>
-      {posts && posts.map((post, index) => <BlogListRowItem id={post.id}  post={post} className={`col-xs-12`} />)}
+      {posts && posts.map((post) => <BlogListRowItem slug={post.slug}  post={post} className={`col-xs-12`} />)}
     </div>
   )
 };

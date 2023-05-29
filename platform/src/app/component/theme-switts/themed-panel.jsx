@@ -13,11 +13,11 @@ const ThemedPanel = () => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
+            <h5 className="modal-title"></h5>
             
           </div>
           <div className="modal-body">
-            <p>Modal body text goes here.</p>
+            <p></p>
           </div>
          
         </div>

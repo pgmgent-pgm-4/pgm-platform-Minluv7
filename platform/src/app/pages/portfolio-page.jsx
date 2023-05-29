@@ -4,7 +4,7 @@ const WerkstukkenPage = () => {
         <>
         <h1>Werkstukken</h1>
         <ThemeButton />
-            <ThemedPanel/>
+        <ThemedPanel/>
         </>
     )
     }

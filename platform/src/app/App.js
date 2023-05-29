@@ -20,7 +20,7 @@ function App() {
       <ThemeProvider>
       <div>
       <Header />
-      <ThemeToggle />
+      <ThemeToggle />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
       <main>
         <Routes>
           <Route path={ROUTES.Home} element={<HomePage />} />

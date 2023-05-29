@@ -11,9 +11,6 @@ import { useThemeContext } from '../context/theme.context';
 
 // Import internal modules
 import { BlogListGrid,  BlogListRow } from "../component/posts";
-import { useFetch } from "../hooks";
-
-//const NEWS_API = 'https://saurav.tech/NewsAPI/top-headlines/category/health/in.json';
 
 const GET_ALLBLOGS = gql`
 query GetAllBlogs {

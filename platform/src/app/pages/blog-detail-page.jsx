@@ -25,10 +25,7 @@ query GetBlogById($postId: ID!) {
   }
 `;
 
-//const NEWS_API = 'https://saurav.tech/NewsAPI/top-headlines/category/health/in.json';
-
 const BlogDetailsPage = () => {
-  const [post, setPost] = useState(null);
 
   const { postId } = useParams();
   const { loading, error, data } = useQuery(GET_BLOG, {
@@ -46,12 +43,7 @@ const BlogDetailsPage = () => {
   if (error ){
     return <p>{error ? error.toString(): error.toString()}</p>;
   }
-//   useEffect(() => {
-//     if (data !== null) {
-//       setPost(data.articles[postId]);
-//     }
-    
-//   }, [data, postId]);
+
 
   return (
     <>

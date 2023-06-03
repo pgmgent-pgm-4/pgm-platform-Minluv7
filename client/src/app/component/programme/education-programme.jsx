@@ -14,6 +14,7 @@ const EducationProgrammes = ({id, educationProgrammes}) => {
       <div className="card-body">
         <h5 className="card-title">{program.name}</h5>
         <p className="card-text">{program.description}</p>
+        <p>{program.academicYear}</p>
        <Link className="btn btn-primary" to={`${ROUTES.Programma}/${program.id}`}>meer info</Link>
         
       </div>

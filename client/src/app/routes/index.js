@@ -7,6 +7,11 @@ export const ROUTES = {
     'Blog': '/blog',
     'BlogDetail': '/blog/:postId',
     'Services': '/services',
-    'Team': '/team'
+    'Team': '/team',
+    'AUTH_SIGN_UP ': '/auth/signup',
+    'AUTH_SIGN_IN': '/auth/signin',
+    'USER': '/user',
+    'USER_PROFILE': '/user/profile',
+    'FOUROFOUR': '/404'
 }
 

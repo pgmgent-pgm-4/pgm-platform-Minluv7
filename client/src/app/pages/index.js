@@ -7,6 +7,8 @@ import SercivesPage from "./services";
 import TeamPage from "./team-page";
 import BlogDetailsPage from './blog-detail-page'
 import ProgrammaDetailPage from "./programma-detail-page";
+import Signin from "./signin.page";
+import Signup from "./signup.page";
 
 export {
     HomePage,
@@ -17,5 +19,7 @@ export {
     SercivesPage,
     TeamPage,
     BlogDetailsPage,
-    ProgrammaDetailPage
+    ProgrammaDetailPage,
+    Signin,
+    Signup,
 }

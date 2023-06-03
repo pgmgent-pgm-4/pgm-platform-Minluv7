@@ -4,24 +4,7 @@ import { useRef } from 'react';
 import { useThemeContext } from '../context/theme.context';
 import { Spinner } from "reactstrap";
 
-const GET_AUTHUSER = gql`
-  query AuthUser($where: AuthUserWhereUniqueInput!) {
-    authUser(where: $where) {
-      email
-      userName
-      password
-    }
-  }
-`;
-
-const GET_ALLAUTHUSER = gql`
-  query AuthUsers {
-    authUsers {
-      userName
-      email
-    }
-  }
-`;
+import {GET_AUTHUSER, GET_ALLAUTHUSER} from '../graphql'
 
 const HomePage = () => {
   const myRef = useRef(0);

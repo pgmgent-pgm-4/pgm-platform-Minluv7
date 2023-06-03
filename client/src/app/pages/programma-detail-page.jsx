@@ -6,15 +6,8 @@ import { EducationProgrammes } from "../component/programme";
 
 import { useThemeContext } from '../context/theme.context';
 
-const GET_EDUCATION_PROGRAM = gql`
-query educationProgrammeById($programmeId: ID) {
-    educationProgramme(where: {id: $programmeId}) {
-      description
-      academicYear
-      name
-    }
-  }
-`
+import {GET_EDUCATION_PROGRAM} from '../graphql'
+
 
 const ProgrammaDetailPage = () => {
     const { isDarkMode } = useThemeContext();

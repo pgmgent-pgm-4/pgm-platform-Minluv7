@@ -4,24 +4,8 @@ import { useState } from "react";
 import { useThemeContext } from '../context/theme.context';
 import { Spinner } from "reactstrap";
 import { EducationProgrammes } from "../component/programme";
+import {GETALLEDUCATIONPROGRAMME} from '../graphql'
 
-const GETALLEDUCATIONPROGRAMME = gql`
-query getAllEducationProgramme {
-    educationProgrammes {
-      id
-      academicYear
-      name
-      description
-      courses {
-        id
-      }
-      authUser {
-        email
-      }
-      
-    }
-  }
-`
 
 const ProgrammaPage = () => {
     const { isDarkMode } = useThemeContext();

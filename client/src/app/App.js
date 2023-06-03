@@ -1,21 +1,22 @@
 // import external modules
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import { Header } from './component';
 //import custom modules
-import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage, ProgrammaDetailPage} from './pages'
+import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage, ProgrammaDetailPage, Signin, Signup} from './pages'
 import { ROUTES } from './routes';
 
 //import styling
 import './App.css';
 import { ThemeToggle } from './component/theme-switts';
-import { ThemeProvider } from './context/theme.context';
-import { UserProvider } from './context/user.context';
-import { HygraphProvider } from './context/hygraph.context';
+
+import { HygraphProvider, AuthProvider, UserProvider,  ThemeProvider} from './context';
+import {AuthLayout, PublicLayout, UserLayout} from './component/layout'
 
 function App() {
   return (
     <div className="App">
       <HygraphProvider>
+        <AuthProvider>
       <UserProvider>
       <ThemeProvider>
       <div>
@@ -34,11 +35,18 @@ function App() {
           </Route>
           <Route path={ROUTES.Services} element={<SercivesPage />} />
           <Route path={ROUTES.Team} element={<TeamPage />} />
+          <Route path="auth" element={<AuthLayout />}>
+                <Route index element ={<Navigate to={ROUTES.AUTH_SIGN_IN} replace={true} />} />
+                <Route path={ROUTES.AUTH_SIGN_IN} element ={<Signin />} />
+                <Route path={ROUTES.AUTH_SIGN_UP} element ={<Signup />} />
+        </Route> 
         </Routes>
+        
       </main>
       </div>
       </ThemeProvider>
       </UserProvider>
+      </AuthProvider>
       </HygraphProvider>
     </div>
   );

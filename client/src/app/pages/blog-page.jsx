@@ -12,19 +12,8 @@ import { useThemeContext } from '../context/theme.context';
 // Import internal modules
 import { BlogListGrid,  BlogListRow } from "../component/posts";
 
-const GET_ALLBLOGS = gql`
-query GetAllBlogs {
-    posts {
-      id
-      title
-      slug
-      body
-      picture{
-        url
-      }
-    }
-  }
-  `
+import {GET_ALLBLOGS} from '../graphql'
+
 
 const BlogPage = () => {
     const { isDarkMode } = useThemeContext();

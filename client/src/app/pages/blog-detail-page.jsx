@@ -9,19 +9,9 @@ import { useState } from "react";
 
 import { useThemeContext } from '../context/theme.context';
 
-const GET_BLOG = gql`
-query GetBlogById($postId: String!) {
-    post(where: { slug: $postId }) {
-      id
-      title
-      slug
-      body
-      picture{
-        url
-      }
-    }
-  }
-`;
+import {GET_BLOG} from '../graphql'
+
+
 
 const BlogDetailsPage = () => {
   const { isDarkMode } = useThemeContext();

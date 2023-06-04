@@ -6,7 +6,7 @@ import {
     HttpLink,
     InMemoryCache,
 } from '@apollo/client'
-
+import { relayStylePagination } from "@apollo/client/utilities";
 import { settings } from '../config/settings'
 
 // HTTP link to the GraphQL resource
@@ -14,7 +14,6 @@ const httpLink = new HttpLink({
     uri: settings.HYGRAPH_CONTENT_API,
 });
 
-  
 const authMiddleware = new ApolloLink((operation, forward) => {
     operation.setContext(({ headers = {} }) => ({
       headers: {
@@ -28,7 +27,15 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   // Create an Apollo GraphQL client
   const client = new ApolloClient({
     link: concat(authMiddleware, httpLink),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {  
+          fields: {  
+            postsConnection: relayStylePagination(),  
+          },  
+        },  
+      },
+    })
   });
   
   const HygraphProvider = ({children}) => {

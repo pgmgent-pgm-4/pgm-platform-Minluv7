@@ -1,6 +1,6 @@
 // Import external modules
 import { useParams } from "react-router-dom";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { Spinner } from "reactstrap";
 // Import internal modules
 import { useFetch } from "../hooks";

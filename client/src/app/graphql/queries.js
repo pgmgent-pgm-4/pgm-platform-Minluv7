@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_AUTHUSER = gql`
+export const GET_ALLAUTHUSERs = gql`
   query AuthUser($where: AuthUserWhereUniqueInput!) {
     authUser(where: $where) {
       email
@@ -10,6 +10,9 @@ export const GET_AUTHUSER = gql`
   }
 `;
 
+
+
+
 export const GET_ALLAUTHUSER = gql`
   query AuthUsers {
     authUsers {
@@ -18,6 +21,42 @@ export const GET_ALLAUTHUSER = gql`
     }
   }
 `;
+
+export const GET_ALL_AUTHUSERS = gql`
+query AuthUsers {
+  authUsers {
+    email
+    userName
+    password
+    person {
+      firstName
+      lastName
+      memberType
+      avatarUrl {
+        url
+      }
+
+    }
+  }
+}
+`
+
+export const GET_AUTHUSER = gql`
+query GetAuthUserByID($teamId: String) {
+  authUser(where: {userName: $teamId}) {
+    id
+    email
+    password
+    person {
+      avatarUrl {
+        url
+      }
+      firstName
+      lastName
+      memberType
+    }
+  }
+}`
 
 export const GET_ALLBLOGS = gql`
 query GetAllBlogs {

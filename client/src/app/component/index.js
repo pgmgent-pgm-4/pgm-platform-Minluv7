@@ -1,5 +1,2 @@
-import Header from './header';
-
-export {
-  Header,
-};
+import Header from './header'
+export{ Header}

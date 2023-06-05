@@ -10,9 +10,6 @@ export const GET_ALLAUTHUSERs = gql`
   }
 `;
 
-
-
-
 export const GET_ALLAUTHUSER = gql`
   query AuthUsers {
     authUsers {

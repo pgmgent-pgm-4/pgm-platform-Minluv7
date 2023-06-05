@@ -1,6 +1,6 @@
 import { ThemeButton, ThemedPanel } from "../component/theme-switts"
-import { gql, useQuery } from "@apollo/client";
-import { useState } from "react";
+import {  useQuery } from "@apollo/client";
+
 import { useThemeContext } from '../context/theme.context';
 import { Spinner } from "reactstrap";
 import { EducationProgrammes } from "../component/programme";
@@ -9,10 +9,12 @@ import {GETALLEDUCATIONPROGRAMME} from '../graphql'
 
 const ProgrammaPage = () => {
     const { isDarkMode } = useThemeContext();
-    const [isGridView, setIsGridView] = useState(true);
+    
     const { loading, error, data } = useQuery(GETALLEDUCATIONPROGRAMME)
 
-    if (loading) {
+  
+
+    if (loading) { 
         return (
           <Spinner>
             Loading...
@@ -31,9 +33,7 @@ const ProgrammaPage = () => {
             <ThemeButton />
             <ThemedPanel/>
             {loading ? <Spinner>LOADING</Spinner> : null}
-            <button onClick={() => setIsGridView(!isGridView)}>
-                switch
-            </button>
+           
             <EducationProgrammes educationProgrammes={data.educationProgrammes} />
         </div>
     )

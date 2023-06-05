@@ -1,18 +1,23 @@
 // import external modules
+
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { Header } from './component';
 //import custom modules
 import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage, TeamDetailPage, ProgrammaDetailPage, Signin, Signup} from './pages'
 import { ROUTES } from './routes';
 
+
 //import styling
+import './App.scss'
 import './App.css';
 import { ThemeToggle } from './component/theme-switts';
 
 import { HygraphProvider, AuthProvider, UserProvider, ThemeProvider} from './context';
 import {AuthLayout, PublicLayout, UserLayout} from './component/layout'
 
+
 function App() {
+
   return (
     <div className="App">
      
@@ -39,6 +44,7 @@ function App() {
           <Route path={ROUTES.Team}>
             <Route index element={<TeamPage />} />
             <Route path=":teamId" element={<TeamDetailPage />} />
+          
           </Route>
           
 

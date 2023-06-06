@@ -3,10 +3,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { Spinner } from "reactstrap";
 // Import internal modules
-import { useFetch } from "../hooks";
-import { useEffect } from "react";
-import { useState } from "react";
-
 import { useThemeContext } from '../context/theme.context';
 
 import {GET_BLOG} from '../graphql'

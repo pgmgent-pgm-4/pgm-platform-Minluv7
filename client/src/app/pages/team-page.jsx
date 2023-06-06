@@ -48,7 +48,6 @@ const TeamPage = () => {
     <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
       <div className="space__team">
         <h1>PGM Team</h1>
-        <ThemeButton />
         <ThemedPanel />
         <div className="d-flex flex-wrap gap-3">
             

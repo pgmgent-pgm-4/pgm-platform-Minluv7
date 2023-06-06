@@ -1,17 +1,13 @@
-import { ThemeButton, ThemedPanel} from '../component/theme-switts'
-
+import {ThemedPanel} from '../component/theme-switts'
 import { Spinner } from 'reactstrap';
 
 // Import external modules
 import { useState } from "react";
-
-import { gql, useQuery } from "@apollo/client";
-import {useRef} from 'react'
-import { useThemeContext } from '../context/theme.context';
+import { useQuery } from "@apollo/client";
 
 // Import internal modules
 import { BlogListGrid,  BlogListRow } from "../component/posts";
-
+import { useThemeContext } from '../context/theme.context';
 import {GET_ALLBLOGS} from '../graphql'
 
 
@@ -36,10 +32,8 @@ const BlogPage = () => {
     return(
         <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
             <h1>Blog</h1>
-            <ThemeButton />
             <ThemedPanel/>
             <div className={`container`}>
-            <h1>Blog</h1>
             {loading ? <Spinner>LOADING</Spinner> : null}
             <div>
                 <button onClick={() => setIsGridView(!isGridView)}>

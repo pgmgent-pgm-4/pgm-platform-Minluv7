@@ -1,5 +1,5 @@
-import { ThemeButton, ThemedPanel } from "../component/theme-switts";
-import { gql, useQuery } from "@apollo/client";
+import { ThemedPanel } from "../component/theme-switts";
+import { useQuery } from "@apollo/client";
 import { useRef } from 'react';
 import { useThemeContext } from '../context/theme.context';
 import { Spinner } from "reactstrap";
@@ -39,10 +39,7 @@ const HomePage = () => {
   return (
     <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
       <h1>Home</h1>
-      <ThemeButton />
       <ThemedPanel />
-      
-  <h1>Home</h1>
   {datas && datas.authUsers.map((user)=>(
   <div className="container" key={user.userName}>
     <p>{user.userName}</p>

@@ -1,4 +1,4 @@
-import { ThemeButton, ThemedPanel } from "../component/theme-switts"
+import { ThemedPanel } from "../component/theme-switts"
 import {  useQuery } from "@apollo/client";
 
 import { useThemeContext } from '../context/theme.context';
@@ -12,8 +12,6 @@ const ProgrammaPage = () => {
     
     const { loading, error, data } = useQuery(GETALLEDUCATIONPROGRAMME)
 
-  
-
     if (loading) { 
         return (
           <Spinner>
@@ -26,11 +24,9 @@ const ProgrammaPage = () => {
         return <p>{error ? error.toString(): error.toString()}</p>;
       }
     
-
     return(
         <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
-            <h1>Programma</h1>
-            <ThemeButton />
+            
             <ThemedPanel/>
             {loading ? <Spinner>LOADING</Spinner> : null}
            

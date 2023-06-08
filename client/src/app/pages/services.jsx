@@ -3,7 +3,6 @@ const SercivesPage = () => {
     return(
         <>
         <h1>Sercives</h1>
-         <ThemeButton />
             <ThemedPanel/>
         </>
     )

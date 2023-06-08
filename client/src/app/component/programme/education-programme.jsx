@@ -26,7 +26,7 @@ const handleSelect = (selectStr) => {
   
     <div className="d-flex row justify-content-center align-items-center my-auto">
       <ProgrammaRadio onChange={handleSelect}/>
-    <div className="d-flex flex-wrap gap-3">
+    <div className="d-flex flex-wrap gap-3 p-4">
       
       {filteredDataSt && filteredDataSt.map((program => 
 

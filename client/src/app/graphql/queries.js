@@ -55,6 +55,15 @@ query GetAuthUserByID($teamId: String) {
   }
 }`
 
+export const GET_TRAININGS = gql`
+query getTrainings {
+  trainings {
+    description
+    title
+  }
+}
+`
+
 export const GET_ALLBLOGS = gql`
 query GetAllBlogs {
     posts {
@@ -85,28 +94,52 @@ query GetBlogById($postId: String!) {
 
 export const GET_EDUCATION_PROGRAM = gql`
 query educationProgrammeById($programmeId: ID) {
-    educationProgramme(where: {id: $programmeId}) {
+  educationProgramme(where: {id: $programmeId}) {
+    description
+    academicYear
+    name
+    courses {
+      ectsFiches
       description
-      academicYear
       name
+      academicYear
+      period
+      studypoints
+      semester
     }
   }
+}
+
 `;
 
 export const GETALLEDUCATIONPROGRAMME = gql`
 query getAllEducationProgramme {
-    educationProgrammes {
+  educationProgrammes {
+    id
+    academicYear
+    name
+    description
+    courses {
       id
       academicYear
+      ectsFiches
       name
       description
-      courses {
-        id
+      studypoints
+      semester
+      period
+      programmeLine {
+        colorCode
+        descriptoin
+        name
       }
-      authUser {
-        email
-      }
-      
+    }
+    authUser {
+      email
+      userName
     }
   }
+}
+
 `
+

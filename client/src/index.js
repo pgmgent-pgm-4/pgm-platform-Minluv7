@@ -5,12 +5,7 @@ import {BrowserRouter} from 'react-router-dom';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 
-// Bootstrap
-import './index.scss';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

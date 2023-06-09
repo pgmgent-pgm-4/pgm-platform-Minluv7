@@ -20,13 +20,7 @@ mutation MyMutation($body: String = "", $slug: String = "", $title: String = "",
     }
   }
 }
-
-
-
-
 `;
-
-
 
 (async () => {
   /*

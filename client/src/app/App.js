@@ -7,15 +7,16 @@ import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, BlogPage, BlogD
 import { ROUTES } from './routes';
 
 
-//import styling
-import './App.scss'
-import './App.css';
+
 import { ThemeToggle } from './component/theme-switts';
 
 import { HygraphProvider, AuthProvider, UserProvider, ThemeProvider} from './context';
 import {AuthLayout, PublicLayout, UserLayout} from './component/layout'
 
 
+//import styling
+import './App.scss';
+import './App.css'
 function App() {
 
   return (

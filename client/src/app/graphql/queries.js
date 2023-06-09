@@ -75,10 +75,9 @@ query GetAllBlogs {
         url
       }
     }
-  }
-  `
+  }`
 
- export const GET_BLOG = gql`
+export const GET_BLOG = gql`
 query GetBlogById($postId: String!) {
     post(where: { slug: $postId }) {
       id
@@ -89,8 +88,7 @@ query GetBlogById($postId: String!) {
         url
       }
     }
-  }
-`;
+  }`;
 
 export const GET_EDUCATION_PROGRAM = gql`
 query educationProgrammeById($programmeId: ID) {
@@ -108,9 +106,7 @@ query educationProgrammeById($programmeId: ID) {
       semester
     }
   }
-}
-
-`;
+}`;
 
 export const GETALLEDUCATIONPROGRAMME = gql`
 query getAllEducationProgramme {
@@ -143,3 +139,16 @@ query getAllEducationProgramme {
 
 `
 
+export const GET_ALL_WORKPIECES = gql`
+query getAllWorkpieces {
+  workpieces {
+    description
+    title
+    link
+    picture {
+      url
+      id
+    }
+  }
+}
+`

@@ -3,10 +3,10 @@ import { WorkpiecesListGrid, WorkpiecesListRow } from "../component/workpieces"
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { Spinner } from 'reactstrap';
-import {GET_ALLBLOGS} from '../graphql'
+import {GET_ALL_WORKPIECES} from '../graphql'
 const WerkstukkenPage = () => {
     const [isGridView, setIsGridView] = useState(true);
-    const { loading, error, data } = useQuery(GET_ALLBLOGS)
+    const { loading, error, data } = useQuery(GET_ALL_WORKPIECES)
     
     if (loading) {
         return (
@@ -24,11 +24,14 @@ const WerkstukkenPage = () => {
         <>
         <h1>Werkstukken</h1>
         <ThemedPanel/>
+        <div className={`container`}>
+        {loading ? <Spinner>LOADING</Spinner> : null}
         <button onClick={() => setIsGridView(!isGridView)}>
                 switch
         </button>
-        {isGridView && data && <WorkpiecesListGrid posts={data.posts} className={`row`} />}
-        {!isGridView && data && <WorkpiecesListRow posts={data.posts} className={`row`} />} 
+        {isGridView && data && <WorkpiecesListGrid workpieces={data.workpieces} className={`row`} />}
+        {!isGridView && data && <WorkpiecesListRow workpieces={data.workpieces} className={`row`} />} 
+    </div>
         </>
     )
     }

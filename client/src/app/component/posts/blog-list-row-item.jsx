@@ -18,7 +18,6 @@ const BlogListRowItem = ({slug, post, className}) => {
             <div className="card-body">
               <h5 className="card-title">{post.title}</h5>
               <p className="card-text">{post.slug}</p>
-              <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
               <Link className="btn btn-primary" to={`${ROUTES.Blog}/${slug}`}>More info</Link>
             </div>
           </div>

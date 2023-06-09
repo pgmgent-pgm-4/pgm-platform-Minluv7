@@ -29,7 +29,7 @@ query AuthUsers {
       firstName
       lastName
       memberType
-      avatarUrl {
+      picture {
         url
       }
 
@@ -45,7 +45,7 @@ query GetAuthUserByID($teamId: String) {
     email
     password
     person {
-      avatarUrl {
+      picture {
         url
       }
       firstName

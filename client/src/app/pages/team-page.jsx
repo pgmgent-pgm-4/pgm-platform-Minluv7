@@ -55,16 +55,23 @@ const TeamPage = () => {
           
           {filteredDataSt && filteredDataSt.map((user) => (
             <div className="col" key={user.userName} >
+        
               {user.person && (
                 <>
-                  {user.person.avatarUrl && (
-                    <img src={user.person.avatarUrl.url} className="card-img-top" alt="avatar" />
+                  {!!user.person.picture && (
+                    
+                    <img src={user.person.picture.url} className="card-img-top" alt="avatar" />
+                  )}
+                  {!user.person.picture && (
+                    
+                    <img src={`no-img.jpg`} className="card-img-top" alt="avatar" />
                   )}
                   <p>{user.person.firstName} {user.person.lastName}</p>
                   <p>{user.email}</p>
                   <p>{user.person.memberType}</p>
                 </>
               )}
+
               <Link className="btn btn-primary" to={`${ROUTES.Team}/${user.userName}`}>meer info</Link>
             </div>
           ))}

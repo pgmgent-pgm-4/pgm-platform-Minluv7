@@ -4,9 +4,9 @@ import { generateValueBetweenMinAndMax, generateTimestamps } from './utils';
 import uploadMediumByRemoteUrl from './upload-medium';
 
 const mutationCreateAuthUser = `
-mutation MyMutation($password: String!, $email: String = "", $userName: String!, $firstName: String!, $lastName: String, $memberType: MemberType, $pictureId: ID! ) {
+mutation MyMutation($password: String!, $email: String = "", $userName: String!, $firstName: String!, $lastName: String, $initials: String, $memberType: MemberType, $pictureId: ID! ) {
   createAuthUser(
-    data: {userName: $userName, password: $password, email: $email, person: {create: {firstName: $firstName, lastName: $lastName, memberType: $memberType, picture: { connect: {id: $pictureId }}}}}
+    data: {userName: $userName, password: $password, email: $email, person: {create: {firstName: $firstName, lastName: $lastName, initials: $initials memberType: $memberType, picture: { connect: {id: $pictureId }}}}}
   ) {
     email
     password
@@ -61,7 +61,7 @@ const memberTypes = [
   const createPersons = async (n = 20) => {
     for (let i = 0; i < n; i++) {
       const result = await uploadMediumByRemoteUrl(faker.image.avatarGitHub())
-      console.log(result);
+      
       await createPerson({
       userName: faker.internet.userName(),
       email: faker.internet.email(),

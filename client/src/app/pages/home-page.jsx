@@ -1,30 +1,18 @@
 import { ThemedPanel } from "../component/theme-switts";
-import { useQuery } from "@apollo/client";
-import { useRef } from 'react';
+import {FirstTraining, FirstBlogs} from '../component/home'
 import { useThemeContext } from '../context/theme.context';
+import { useQuery } from "@apollo/client";
+import {FIRST_TRAINING, FIRST_BLOGS} from '../graphql'
 import { Spinner } from "reactstrap";
 
-import {GET_AUTHUSER, GET_ALLAUTHUSER} from '../graphql'
+
 
 const HomePage = () => {
-  const myRef = useRef(0);
   const { isDarkMode } = useThemeContext();
-  const handleClick = (ev) => {
-    myRef.current++;
-  };
-  const userId = "Minluv";
-  
-  const { loading, error, data } = useQuery(GET_AUTHUSER, {
-    variables: {
-      where: {
-        userName: `${userId}`,
-      },
-    },
-  });
-  
-  const { loading: load, error: er, data: datas } = useQuery(GET_ALLAUTHUSER);
+  const { loading, error, data } = useQuery(FIRST_TRAINING);
+  const {loading: lead, error: err, data: dat} = useQuery (FIRST_BLOGS)
 
-  if (loading || load) {
+  if (loading || lead) { 
     return (
       <Spinner>
         Loading...
@@ -32,8 +20,8 @@ const HomePage = () => {
     );
   }
 
-  if (error || er) {
-    return <p>{error ? error.toString() : er.toString()}</p>;
+  if (error || err){
+    return <p>{error ? error.toString(): err.toString()}</p>;
   }
 
   return (
@@ -62,21 +50,9 @@ const HomePage = () => {
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</div>
-  {datas && datas.authUsers.map((user)=>(
-  <div className="container" key={user.userName}>
-    <p>{user.userName}</p>
-    <p>{user.email}</p>
-   
-</div>
-  )) }
-
-      {data && data.authUser && (
-        <div className="container">
-          <p>{data.authUser.userName}</p>
-          <p>{data.authUser.email}</p>
-        </div>
-      )}
+      </div>
+      <FirstTraining trainings={data.trainings} />
+      <FirstBlogs posts={dat.posts}/>
     </div>
   ) 
 }

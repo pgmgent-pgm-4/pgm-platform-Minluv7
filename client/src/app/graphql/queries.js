@@ -63,6 +63,16 @@ query getTrainings {
   }
 }
 `
+export const FIRST_TRAINING = gql`
+query MyQuery($first: Int = 1) {
+  trainings(first: $first) {
+    id
+    title
+    description
+  }
+}
+`
+
 
 export const GET_ALLBLOGS = gql`
 query GetAllBlogs {
@@ -89,6 +99,24 @@ query GetBlogById($postId: String!) {
       }
     }
   }`;
+
+  export const FIRST_BLOGS = gql`
+  query FirstPosts($first: Int = 3) {
+    posts(first: $first) {
+      slug
+      title
+      picture {
+        url
+        id
+      }
+      body
+      tags {
+        name
+      }
+    }
+  }
+  
+  `
 
 export const GET_EDUCATION_PROGRAM = gql`
 query educationProgrammeById($programmeId: ID) {

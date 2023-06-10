@@ -28,7 +28,6 @@ const WerkstukkenDetailPage = () => {
 
     return(
         <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
-<a href="/werkstukken" className=".left-*">Ga terug</a>
             <ThemedPanel/>
             {data.workpiece &&
             <div>

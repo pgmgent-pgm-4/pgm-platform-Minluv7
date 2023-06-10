@@ -13,7 +13,6 @@ import {GET_ALLBLOGS} from '../graphql'
 
 const BlogPage = () => {
     const { isDarkMode } = useThemeContext();
-    //const [data, isLoading, error] = useFetch(NEWS_API);
     const [isGridView, setIsGridView] = useState(true);
     const { loading, error, data } = useQuery(GET_ALLBLOGS)
 

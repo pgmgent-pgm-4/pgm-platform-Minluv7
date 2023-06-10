@@ -17,8 +17,7 @@ const WorkpiecesListRowItem = ({id, workpiece, className}) => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{workpiece.title}</h5>
-              <p className="card-text">{workpiece.slug}</p>
-              <Link className="btn btn-primary" to={`${ROUTES.Werkstukken}/${id}`}>More info</Link>
+              <Link className="btn btn-primary" to={`${ROUTES.Werkstukken}/${workpiece.title}`}>More info</Link>
             </div>
           </div>
         </div>

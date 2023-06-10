@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import {  useQuery } from "@apollo/client";
 
 import '../../_sass/main.scss'
-const EducationProgrammes = ({id, educationProgrammes}) => {
+const EducationProgrammes = () => {
   const { loading, error, data } = useQuery(GETALLEDUCATIONPROGRAMME)
 
   const [filteredDataSt, setFilteredDataSt] = useState([]);

@@ -35,15 +35,17 @@ function App() {
           <Route path={ROUTES.Opleiding} element={<OpleidingPage />} />
           <Route path={ROUTES.Programma} element={<ProgrammaPage />} />
           <Route path={ROUTES.ProgrammaDetail} element={<ProgrammaDetailPage />}/>
+        
           <Route path={ROUTES.Werkstukken}>
             <Route index element={<WerkstukkenPage />} />
             <Route path=':werkstukkenId' element={<WerkstukkenDetailPage />} />
-</Route>
+          </Route>
 
           <Route path={ROUTES.Blog}>
             <Route index element={<BlogPage />} />
             <Route path=":postId" element={<BlogDetailsPage />} />
           </Route>
+
           <Route path={ROUTES.Services} element={<SercivesPage />} />
          
           <Route path={ROUTES.Team}>
@@ -52,8 +54,7 @@ function App() {
           
           </Route>
           
-
-         <Route path={ROUTES.LANDING} element={<PublicLayout />}>
+          <Route path={ROUTES.LANDING} element={<PublicLayout />}>
                 <Route index element={<HomePage />} />
                 <Route path={ROUTES.HOME} element={<Navigate to="/" replace={true} />} />
                 <Route path={ROUTES.POSTS} element={<BlogPage />} />  

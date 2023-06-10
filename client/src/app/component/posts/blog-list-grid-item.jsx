@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ROUTES } from '../../routes';
 
 
-const BlogListGridItem = ({id, post, className}) => {
+const BlogListGridItem = ({slug, post, className}) => {
   return (
     <div className={`${className}`}>
       <article className={`card`}>
@@ -14,7 +14,7 @@ const BlogListGridItem = ({id, post, className}) => {
        
         <div className="card-body">
           <h5 className="card-title">{post.title}</h5>
-          <Link className="btn btn-primary" to={`${ROUTES.Werkstukken}/${id}`}>Meer info</Link>
+          <Link className="btn btn-primary" to={`${ROUTES.Blog}/${slug}`}>Meer info</Link>
         </div>
       </article>
     </div>

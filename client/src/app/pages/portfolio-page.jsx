@@ -3,8 +3,12 @@ import { WorkpiecesListGrid, WorkpiecesListRow } from "../component/workpieces"
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { Spinner } from 'reactstrap';
+import { useThemeContext } from '../context/theme.context';
 import {GET_ALL_WORKPIECES} from '../graphql'
+
+
 const WerkstukkenPage = () => {
+  const { isDarkMode } = useThemeContext();
     const [isGridView, setIsGridView] = useState(true);
     const { loading, error, data } = useQuery(GET_ALL_WORKPIECES)
     
@@ -21,7 +25,7 @@ const WerkstukkenPage = () => {
       }
     
     return(
-        <>
+        <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
         <h1>Werkstukken</h1>
         <ThemedPanel/>
         <div className={`container`}>
@@ -32,8 +36,11 @@ const WerkstukkenPage = () => {
         {isGridView && data && <WorkpiecesListGrid workpieces={data.workpieces} className={`row`} />}
         {!isGridView && data && <WorkpiecesListRow workpieces={data.workpieces} className={`row`} />} 
     </div>
-        </>
+  
+        </div>
     )
+    
     }
     
-    export default WerkstukkenPage
+    
+    export default WerkstukkenPage;

@@ -152,3 +152,17 @@ query getAllWorkpieces {
   }
 }
 `
+
+export const GET_ID_WORKPIECE = gql`
+query getIdByWorkpiece($werkstukkenId: String) {
+  workpiece(where: {title: $werkstukkenId}) {
+    description
+    link
+    title
+    picture {
+      url
+      id
+    }
+  }
+}
+`

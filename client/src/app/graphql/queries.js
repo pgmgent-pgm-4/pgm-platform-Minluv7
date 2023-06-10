@@ -166,3 +166,20 @@ query getIdByWorkpiece($werkstukkenId: String) {
   }
 }
 `
+
+export const GET_ALL_SERVICES = gql`
+query getAllServices {
+  services {
+    body {
+      html
+    }
+    title
+    synopsis
+    picture {
+      url
+      id
+    }
+  }
+}
+
+`

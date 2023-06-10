@@ -2,15 +2,7 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from '../../routes';
 
-import {GET_ALL_WORKPIECES} from '../../graphql'
-import { useEffect, useState } from "react";
-import {  useQuery } from "@apollo/client";
-
-
 const WorkpiecesListGridItem = ({ workpiece, className}) => {
-  const { loading, error, data } = useQuery(GET_ALL_WORKPIECES)
-  const [filteredDataSt, setFilteredDataSt] = useState([])
-
 
   return (
     <div className={`${className}`}>

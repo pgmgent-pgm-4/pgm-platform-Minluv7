@@ -5,6 +5,7 @@ import WerkstukkenPage from "./portfolio-page";
 import WerkstukkenDetailPage from './portfolio-detail-page';
 import BlogPage from "./blog-page";
 import SercivesPage from "./services";
+import SercivesDetailPage from './service-detail'
 import TeamPage from "./team-page";
 import TeamDetailPage from "./team-detail-page";
 import BlogDetailsPage from './blog-detail-page'
@@ -21,6 +22,7 @@ export {
     WerkstukkenDetailPage,
     BlogPage,
     SercivesPage,
+    SercivesDetailPage,
     TeamPage,
     TeamDetailPage,
     BlogDetailsPage,

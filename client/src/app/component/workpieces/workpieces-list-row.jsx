@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {  useQuery } from "@apollo/client";
 import {GET_ALL_WORKPIECES} from '../../graphql'
 import {WorkpieceSearch} from '../../component/filters/'
+
 const WorkpiecesListRow = ({workpieces, className}) => {
   const { loading, error, data } = useQuery(GET_ALL_WORKPIECES)
   const [filteredDataSt, setFilteredDataSt] = useState([])
@@ -18,14 +19,8 @@ const WorkpiecesListRow = ({workpieces, className}) => {
  return (
 <div className={`${className}`}>
 <WorkpieceSearch onSearch={handleSearch} />
-      {filteredDataSt &&
-        filteredDataSt.map((workpiece, index) => (
-          <WorkpiecesListRowItem
-            key={index} // Toevoegen van een unieke key prop
-            title={workpiece.title}
-            workpiece={workpiece}
-            className={`col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3`}
-          />
+      {filteredDataSt && filteredDataSt.map((workpiece, index) => (
+          <WorkpiecesListRowItem title={workpiece.title} workpiece={workpiece} className={`col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3`}/>
         ))}
     </div>
   )

@@ -3,7 +3,7 @@
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { Header } from './component';
 //import custom modules
-import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, WerkstukkenDetailPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage, TeamDetailPage, ProgrammaDetailPage, Signin, Signup} from './pages'
+import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, WerkstukkenDetailPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage, TeamDetailPage, ProgrammaDetailPage, Signin, Signup, SercivesDetailPage} from './pages'
 import { ROUTES } from './routes';
 
 
@@ -46,12 +46,14 @@ function App() {
             <Route path=":postId" element={<BlogDetailsPage />} />
           </Route>
 
-          <Route path={ROUTES.Services} element={<SercivesPage />} />
+          <Route path={ROUTES.Services} element={<SercivesPage />} >
+          <Route element={<SercivesPage />}/>
+          <Route path=':serciceId' element={<SercivesDetailPage />}/>
+          </Route>
          
           <Route path={ROUTES.Team}>
             <Route index element={<TeamPage />} />
             <Route path=":teamId" element={<TeamDetailPage />} />
-          
           </Route>
           
           <Route path={ROUTES.LANDING} element={<PublicLayout />}>

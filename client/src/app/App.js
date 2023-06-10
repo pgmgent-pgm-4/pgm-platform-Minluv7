@@ -46,9 +46,9 @@ function App() {
             <Route path=":postId" element={<BlogDetailsPage />} />
           </Route>
 
-          <Route path={ROUTES.Services} element={<SercivesPage />} >
-          <Route element={<SercivesPage />}/>
-          <Route path=':serciceId' element={<SercivesDetailPage />}/>
+          <Route path={ROUTES.Services} >
+          <Route index element={<SercivesPage />}/>
+          <Route path=':serviceId' element={<SercivesDetailPage />}/>
           </Route>
          
           <Route path={ROUTES.Team}>

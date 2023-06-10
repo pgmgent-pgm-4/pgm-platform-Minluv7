@@ -8,7 +8,7 @@ export const ROUTES = {
     'Blog': '/blog',
     'BlogDetail': '/blog/:postId',
     'Services': '/services',
-    'SerciceDetail': '/services/:servuceId',
+    'SerciceDetail': '/services/:serviceId',
     'Team': '/team',
     'TeamDetail': '/team/:teamId',
     'AUTH_SIGN_UP': '/auth/signup',

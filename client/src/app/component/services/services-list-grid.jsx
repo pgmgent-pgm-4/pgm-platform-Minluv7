@@ -5,7 +5,7 @@ const ServicesListGrid = ({ services, className}) => {
 
   return (
     <div className={`${className}`}>
-      {services && services.map((service, index) => <ServicesListGridItem title={service.title} service={service} className={`col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3`} />)}
+      {services && services.map((service, index) => <ServicesListGridItem id={service.id} service={service} className={`col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3`} />)}
     </div>
   )
 };

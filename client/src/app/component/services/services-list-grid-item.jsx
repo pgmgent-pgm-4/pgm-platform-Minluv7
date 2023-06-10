@@ -14,7 +14,8 @@ const ServicesListGridItem = ({ service, className}) => {
        
         <div className="card-body">
           <h3 className="card-title">{service.title}</h3>
-          <Link className="btn btn-primary" to={`${ROUTES.Services}/${service.title}`}>More info</Link>
+          <p>{service.synopsis}</p>
+          <Link className="btn btn-primary" to={`${ROUTES.Services}/${service.id}`}>More info</Link>
         </div>
       </article>
     </div>

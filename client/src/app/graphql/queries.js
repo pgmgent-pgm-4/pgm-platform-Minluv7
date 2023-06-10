@@ -170,6 +170,7 @@ query getIdByWorkpiece($werkstukkenId: String) {
 export const GET_ALL_SERVICES = gql`
 query getAllServices {
   services {
+    id
     body {
       html
     }
@@ -181,5 +182,19 @@ query getAllServices {
     }
   }
 }
-
+`
+export const GET_ID_SERVICE = gql`
+query serviceById($serviceId: ID) {
+  service(where: {id: $serviceId}) {
+    title
+    synopsis
+    body {
+      markdown
+    }
+    picture {
+      id
+      url
+    }
+  }
+}
 `

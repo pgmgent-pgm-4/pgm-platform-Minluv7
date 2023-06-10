@@ -17,7 +17,7 @@ const ServicesListRowItem = ({id, service, className}) => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{service.title}</h5>
-              <Link className="btn btn-primary" to={`${ROUTES.Services}/${service.title}`}>More info</Link>
+              <Link className="btn btn-primary" to={`${ROUTES.Services}/${service.id}`}>More info</Link>
             </div>
           </div>
         </div>

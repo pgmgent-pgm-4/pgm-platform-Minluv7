@@ -1,6 +1,6 @@
 import {  ThemedPanel } from "../component/theme-switts"
 import { WorkpiecesListGrid, WorkpiecesListRow } from "../component/workpieces"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { Spinner } from 'reactstrap';
 import { useThemeContext } from '../context/theme.context';
@@ -12,6 +12,8 @@ const WerkstukkenPage = () => {
     const [isGridView, setIsGridView] = useState(true);
     const { loading, error, data } = useQuery(GET_ALL_WORKPIECES)
     
+   
+
     if (loading) {
         return (
           <Spinner>
@@ -27,6 +29,7 @@ const WerkstukkenPage = () => {
     return(
         <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
         <h1>Werkstukken</h1>
+       
         <ThemedPanel/>
         <div className={`container`}>
         {loading ? <Spinner>LOADING</Spinner> : null}

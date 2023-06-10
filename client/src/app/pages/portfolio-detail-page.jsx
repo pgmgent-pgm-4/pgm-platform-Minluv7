@@ -12,12 +12,12 @@ const WerkstukkenDetailPage = () => {
     const { loading, error, data } = useQuery(GET_ID_WORKPIECE, {
         variables: { werkstukkenId}
       });
-
+        
       if (loading) {
         return (
-          <Spinner>
-            Loading...
-          </Spinner>
+            <Spinner>
+                Loading...
+            </Spinner>
         );
       }
     
@@ -32,9 +32,9 @@ const WerkstukkenDetailPage = () => {
             <ThemedPanel/>
             {data.workpiece &&
             <div>
-                 {loading ? <Spinner>LOADING</Spinner> : null}
-                 <h1>{data.workpiece.title}</h1>
-                 { !!data.workpiece.picture &&  <img src={data.workpiece.picture.url} className="card-img-top" alt={data.workpiece.title} /> }
+                {loading ? <Spinner>LOADING</Spinner> : null}
+                <h1>{data.workpiece.title}</h1>
+                { !!data.workpiece.picture &&  <img src={data.workpiece.picture.url} className="card-img-top" alt={data.workpiece.title} /> }
                 { !data.workpiece.picture &&  <img src={`no-img.jpg`} className="card-img-top" alt={data.workpiece.title} /> }
             <p>{data.workpiece.description}</p>
             </div>

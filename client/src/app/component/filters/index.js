@@ -1,4 +1,4 @@
 import TeamRadio from './filterTeam'
 import ProgrammaRadio from './filterProgramma'
-
-export {TeamRadio, ProgrammaRadio}
+import WorkpieceSearch from './searchWorkpiece'
+export {TeamRadio, ProgrammaRadio, WorkpieceSearch}

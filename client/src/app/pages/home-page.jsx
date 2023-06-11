@@ -1,17 +1,17 @@
 import { ThemedPanel } from "../component/theme-switts";
-import {FirstTraining, FirstBlogs} from '../component/home'
+import {FirstTraining, FirstBlogs, FirstServices, FirstWorkpieces} from '../component/home'
 import { useThemeContext } from '../context/theme.context';
 import { useQuery } from "@apollo/client";
-import {FIRST_TRAINING, FIRST_BLOGS} from '../graphql'
+import {FIRST_TRAINING, FIRST_BLOGS, FIRST_SERVICES, FIRST_WORKPIECE} from '../graphql'
 import { Spinner } from "reactstrap";
-
-
 
 const HomePage = () => {
   const { isDarkMode } = useThemeContext();
   const { loading, error, data } = useQuery(FIRST_TRAINING);
   const {loading: lead, error: err, data: dat} = useQuery (FIRST_BLOGS)
-
+  const { loading: servicesLoading, error: servicesError, data: servicesData } = useQuery(FIRST_SERVICES);
+  const { loading: workpieceLoading, error: workpieceError, data: workpieceData } = useQuery(FIRST_WORKPIECE);
+  
   if (loading || lead) { 
     return (
       <Spinner>
@@ -19,9 +19,30 @@ const HomePage = () => {
       </Spinner>
     );
   }
-
+  if (servicesLoading) { 
+    return (
+      <Spinner>
+        Loading...
+      </Spinner>
+    );
+  }
+  if (workpieceLoading) { 
+    return (
+      <Spinner>
+        Loading...
+      </Spinner>
+    );
+  }
   if (error || err){
     return <p>{error ? error.toString(): err.toString()}</p>;
+  }
+
+  if (servicesError){
+    return <p>{servicesError ? servicesError.toString(): servicesError.toString()}</p>;
+  }
+
+  if (workpieceError){
+    return <p>{workpieceError ? workpieceError.toString(): workpieceError.toString()}</p>;
   }
 
   return (
@@ -53,6 +74,8 @@ const HomePage = () => {
       </div>
       <FirstTraining trainings={data.trainings} />
       <FirstBlogs posts={dat.posts}/>
+      <FirstServices services={servicesData.services}/>
+      <FirstWorkpieces workpieces={workpieceData.workpieces} />
     </div>
   ) 
 }

@@ -5,7 +5,7 @@ import { Header } from './component';
 //import custom modules
 import {HomePage, OpleidingPage, ProgrammaPage, WerkstukkenPage, WerkstukkenDetailPage, BlogPage, BlogDetailsPage, SercivesPage, TeamPage, TeamDetailPage, ProgrammaDetailPage, Signin, Signup, SercivesDetailPage} from './pages'
 import { ROUTES } from './routes';
-
+import { FirstBlogs, FirstServices } from './component/home';
 
 
 import { ThemeToggle } from './component/theme-switts';
@@ -39,16 +39,19 @@ function App() {
           <Route path={ROUTES.Werkstukken}>
             <Route index element={<WerkstukkenPage />} />
             <Route path=':werkstukkenId' element={<WerkstukkenDetailPage />} />
+           
           </Route>
 
           <Route path={ROUTES.Blog}>
             <Route index element={<BlogPage />} />
             <Route path=":postId" element={<BlogDetailsPage />} />
+            <Route path=":postId" element={<FirstBlogs />} />
           </Route>
 
           <Route path={ROUTES.Services} >
           <Route index element={<SercivesPage />}/>
           <Route path=':serviceId' element={<SercivesDetailPage />}/>
+          <Route path=':serviceId' element={<FirstServices />}/>
           </Route>
          
           <Route path={ROUTES.Team}>

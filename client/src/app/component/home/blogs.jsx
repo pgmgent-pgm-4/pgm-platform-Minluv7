@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-const FirstBlogs = ({ posts, className }) => {
+import { ROUTES } from '../../routes';
+const FirstBlogs = ({ posts}) => {
     return (
       <div className="row">
         <h1>Blogs</h1>
@@ -21,7 +22,7 @@ const FirstBlogs = ({ posts, className }) => {
                     ))}
                   </div>
                 )}
-                <Link to="/blog" className="stretched-link" />
+                 <Link to={`${ROUTES.Blog}/${post.slug}`} className="stretched-link" />
               </div>
             </div>
           ))}

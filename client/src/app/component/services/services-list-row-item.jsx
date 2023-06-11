@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ROUTES } from '../../routes';
 
 
-const ServicesListRowItem = ({id, service, className}) => {
+const ServicesListRowItem = ({ service, className}) => {
   return (
     <div className={`${className}`}>
       <article className="card mb-3">

@@ -114,9 +114,7 @@ query GetBlogById($postId: String!) {
         name
       }
     }
-  }
-  
-  `
+  }`
 
 export const GET_EDUCATION_PROGRAM = gql`
 query educationProgrammeById($programmeId: ID) {
@@ -195,6 +193,20 @@ query getIdByWorkpiece($werkstukkenId: String) {
 }
 `
 
+export const FIRST_WORKPIECE = gql`
+query firstWorkpiece($skip: Int = 1, $first: Int = 1) {
+  workpieces(skip: $skip, first: $first) {
+    title
+    picture {
+      id
+      url
+    }
+    link
+    description
+  }
+}
+`
+
 export const GET_ALL_SERVICES = gql`
 query getAllServices {
   services {
@@ -215,6 +227,7 @@ export const GET_ID_SERVICE = gql`
 query serviceById($serviceId: ID) {
   service(where: {id: $serviceId}) {
     title
+    
     synopsis
     body {
       markdown
@@ -222,6 +235,22 @@ query serviceById($serviceId: ID) {
     picture {
       id
       url
+    }
+  }
+}
+`
+export const FIRST_SERVICES = gql`
+query firstServices($first: Int = 1) {
+  services(first: $first) {
+    title
+    id
+    synopsis
+    body{
+      markdown
+    }
+    picture {
+      url
+      id
     }
   }
 }

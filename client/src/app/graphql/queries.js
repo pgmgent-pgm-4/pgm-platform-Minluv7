@@ -255,3 +255,26 @@ query firstServices($first: Int = 1) {
   }
 }
 `
+
+export const GET_POSTS_WITH_PAGINATION = gql`
+query GetPostsWithPagination($first: Int = 10, $skip: Int = 0) {
+  postsConnection(first: $first, skip: $skip) {
+    pageInfo {
+      hasNextPage
+      endCursor
+      hasPreviousPage
+      pageSize
+    }
+    aggregate {
+      count
+    }
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+}
+
+`

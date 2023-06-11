@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ROUTES } from '../../routes';
 const FirstWorkpieces = ({ workpieces }) => {
     return (
-      <div className="row">
+      <div className="row d-flex justify-content-center">
         <h1>Werkstukken</h1>
         {workpieces &&
           workpieces.map((workpiece) => (

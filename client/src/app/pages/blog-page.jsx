@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 
 // Import internal modules
-import { BlogListGrid,  BlogListRow } from "../component/posts";
+import { BlogListGrid,  BlogListRow, PostsListPagination} from "../component/posts";
 import { useThemeContext } from '../context/theme.context';
 import {GET_ALLBLOGS} from '../graphql'
 
@@ -28,6 +28,7 @@ const BlogPage = () => {
     return <p>{error ? error.toString(): error.toString()}</p>;
   }
 
+
     return(
         <div className={`model ${isDarkMode ? 'modal-dark' : 'modal-light'}`} tabIndex="-1">
             <h1>Blog</h1>
@@ -40,9 +41,11 @@ const BlogPage = () => {
                 </button>
                 {isGridView && data && <BlogListGrid posts={data.posts} className={`row`} />}
                 {!isGridView && data && <BlogListRow posts={data.posts} className={`row`} />} 
+            <PostsListPagination />
             </div>
             </div>
+            
         </div>
-    )
+    )  
     }
     export default BlogPage;

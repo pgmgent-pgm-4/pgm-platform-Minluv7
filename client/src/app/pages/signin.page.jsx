@@ -1,25 +1,18 @@
 // Import external modules
-import { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   Form,
   Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Container,
-  Col,
   Row,
   FormGroup,
-  Label
-} from "reactstrap";
-import { useAuth } from "../context/auth.context";
+  Label,
+} from 'reactstrap';
 
-const Signin = () => {
+import { useAuth } from '../context/auth.context';
+
+function Signin() {
   const [formData, setFormData] = useState({
     txtUsername: '',
     txtPassword: '',
@@ -31,13 +24,13 @@ const Signin = () => {
     setFormData({
       ...formData,
       [ev.target.name]: (ev.target.type !== 'checkbox') ? ev.target.value : ev.target.checked,
-    })
+    });
   };
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
-    signInWithEmailAndPassword(formData.txtUsername, formData.txtPassword)
+    signInWithEmailAndPassword(formData.txtUsername, formData.txtPassword);
   };
 
   return (
@@ -46,22 +39,24 @@ const Signin = () => {
         <Row>
           <FormGroup>
             <Label for="txtUsername">Username</Label>
-            <Input 
+            <Input
               id="txtUsername"
               name="txtUsername"
               placeholder="Write your username"
               type="text"
-              onChange={handleOnChange} value={formData.txtUsername}
+              onChange={handleOnChange}
+              value={formData.txtUsername}
             />
           </FormGroup>
           <FormGroup>
             <Label for="txtPassword">Password</Label>
-            <Input 
+            <Input
               id="txtPassword"
               name="txtPassword"
               placeholder="Write your password"
               type="password"
-              onChange={handleOnChange} value={formData.txtPassword}
+              onChange={handleOnChange}
+              value={formData.txtPassword}
             />
           </FormGroup>
         </Row>
@@ -69,6 +64,6 @@ const Signin = () => {
       </Form>
     </Card>
   );
-};
+}
 
 export default Signin;

@@ -1,6 +1,6 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
-export const GET_ALLAUTHUSERs = gql`
+export const GET_ALLAUTHUSERS = gql`
   query AuthUser($where: AuthUserWhereUniqueInput!) {
     authUser(where: $where) {
       email
@@ -36,7 +36,7 @@ query AuthUsers {
     }
   }
 }
-`
+`;
 
 export const GET_AUTHUSER = gql`
 query GetAuthUserByID($teamId: String) {
@@ -53,7 +53,7 @@ query GetAuthUserByID($teamId: String) {
       memberType
     }
   }
-}`
+}`;
 
 export const GET_TRAININGS = gql`
 query getTrainings {
@@ -62,7 +62,7 @@ query getTrainings {
     title
   }
 }
-`
+`;
 export const FIRST_TRAINING = gql`
 query MyQuery($first: Int = 1) {
   trainings(first: $first) {
@@ -71,8 +71,7 @@ query MyQuery($first: Int = 1) {
     description
   }
 }
-`
-
+`;
 
 export const GET_ALLBLOGS = gql`
 query GetAllBlogs {
@@ -85,7 +84,7 @@ query GetAllBlogs {
         url
       }
     }
-  }`
+  }`;
 
 export const GET_BLOG = gql`
 query GetBlogById($postId: String!) {
@@ -100,7 +99,7 @@ query GetBlogById($postId: String!) {
     }
   }`;
 
-  export const FIRST_BLOGS = gql`
+export const FIRST_BLOGS = gql`
   query FirstPosts($first: Int = 3) {
     posts(first: $first) {
       slug
@@ -114,7 +113,7 @@ query GetBlogById($postId: String!) {
         name
       }
     }
-  }`
+  }`;
 
 export const GET_EDUCATION_PROGRAM = gql`
 query educationProgrammeById($programmeId: ID) {
@@ -163,7 +162,7 @@ query getAllEducationProgramme {
   }
 }
 
-`
+`;
 
 export const GET_ALL_WORKPIECES = gql`
 query getAllWorkpieces {
@@ -177,7 +176,7 @@ query getAllWorkpieces {
     }
   }
 }
-`
+`;
 
 export const GET_ID_WORKPIECE = gql`
 query getIdByWorkpiece($werkstukkenId: String) {
@@ -191,7 +190,7 @@ query getIdByWorkpiece($werkstukkenId: String) {
     }
   }
 }
-`
+`;
 
 export const FIRST_WORKPIECE = gql`
 query firstWorkpiece($skip: Int = 1, $first: Int = 1) {
@@ -205,7 +204,7 @@ query firstWorkpiece($skip: Int = 1, $first: Int = 1) {
     description
   }
 }
-`
+`;
 
 export const GET_ALL_SERVICES = gql`
 query getAllServices {
@@ -222,7 +221,7 @@ query getAllServices {
     }
   }
 }
-`
+`;
 export const GET_ID_SERVICE = gql`
 query serviceById($serviceId: ID) {
   service(where: {id: $serviceId}) {
@@ -238,7 +237,7 @@ query serviceById($serviceId: ID) {
     }
   }
 }
-`
+`;
 export const FIRST_SERVICES = gql`
 query firstServices($first: Int = 1) {
   services(first: $first) {
@@ -254,7 +253,7 @@ query firstServices($first: Int = 1) {
     }
   }
 }
-`
+`;
 
 export const GET_POSTS_WITH_PAGINATION = gql`
 query GetPostsWithPagination($first: Int = 10, $skip: Int = 0) {
@@ -277,4 +276,4 @@ query GetPostsWithPagination($first: Int = 10, $skip: Int = 0) {
   }
 }
 
-`
+`;

@@ -1,18 +1,18 @@
-import { Outlet } from 'react-router-dom'; 
-import Header from '../header';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { Outlet } from 'react-router-dom';
 
-const PublicLayout = ({
+import React from 'react';
+
+function PublicLayout({
   children,
   ...rest
-}) => {
+}) {
   return (
-    <>
-     
-      <main>
-        <Outlet/>
-      </main>
-    </>  
+    <main>
+      <Outlet />
+    </main>
   );
-};
+}
 
 export default PublicLayout;

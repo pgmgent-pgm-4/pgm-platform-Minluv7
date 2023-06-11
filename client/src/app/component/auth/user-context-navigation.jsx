@@ -1,17 +1,19 @@
 // Import external modules
 import { NavLink as RRNavLink } from 'react-router-dom';
-import { DropdownItem, DropdownMenu, DropdownToggle, NavbarText, Nav, NavItem, NavLink, UncontrolledDropdown, Button} from 'reactstrap';
-
+import {
+  DropdownItem, DropdownMenu, DropdownToggle, NavItem, NavLink, UncontrolledDropdown, Button,
+} from 'reactstrap';
+import React from 'react';
 // Import custom modules
-import {ROUTES} from '../../routes';
+import { ROUTES } from '../../routes';
 import { useAuth } from '../../context/auth.context';
 
-const UserContextNavigation = () => {
+function UserContextNavigation() {
   const { currentUser, signOut } = useAuth();
 
   return (
-    <>
-      {!!currentUser
+    <div>
+      {currentUser
         ? (
           <UncontrolledDropdown
             inNavbar
@@ -21,12 +23,13 @@ const UserContextNavigation = () => {
               caret
               nav
             >
-              {!!currentUser && 
-                <span className={`user`}>
-                  <span className={`user__avatar`}></span>
-                  <span className={`user__username`}>{currentUser.userName}</span>
+              {!!currentUser
+                && (
+                <span className="user">
+                  <span className="user__avatar" />
+                  <span className="user__username">{currentUser.userName}</span>
                 </span>
-              }
+                )}
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem>
@@ -51,10 +54,9 @@ const UserContextNavigation = () => {
               <NavLink tag={RRNavLink} to={ROUTES.AUTH_SIGN_UP}>Sign Up</NavLink>
             </NavItem>
           </>
-        )
-      } 
-    </>
-  )
-};
+        )}
+    </div>
+  );
+}
 
 export default UserContextNavigation;

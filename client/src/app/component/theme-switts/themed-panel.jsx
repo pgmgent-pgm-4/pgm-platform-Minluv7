@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react';
 import { useThemeContext } from '../../context/theme.context';
 
 // Styling
 import './themed-panel.scss';
 
-const ThemedPanel = () => {
+function ThemedPanel() {
   const { isDarkMode } = useThemeContext();
 
   return (
@@ -13,17 +14,17 @@ const ThemedPanel = () => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title"></h5>
-            
+            <h5 className="modal-title" />
+
           </div>
           <div className="modal-body">
-            <p></p>
+            <p />
           </div>
-         
+
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default ThemedPanel;

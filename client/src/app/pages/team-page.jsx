@@ -1,23 +1,19 @@
-import { ThemeButton, ThemedPanel } from "../component/theme-switts";
-import { useQuery } from "@apollo/client";
-import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { Spinner } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { ThemedPanel } from '../component/theme-switts';
 import { useThemeContext } from '../context/theme.context';
-import { Spinner } from "reactstrap";
-import { useEffect, useState } from 'react';
 import { GET_ALL_AUTHUSERS } from '../graphql';
-import './teamPage.css'
-import { TeamRadio } from '../component/filters'
-import { Link } from "react-router-dom";
+import './teamPage.css';
+import { TeamRadio } from '../component/filters';
 import { ROUTES } from '../routes';
 
-const TeamPage = () => {
-  const myRef = useRef(0);
+function TeamPage() {
   const { isDarkMode } = useThemeContext();
-  const handleClick = (ev) => {
-    myRef.current++;
-  };
+
   const [filteredDataSt, setFilteredDataSt] = useState([]);
-  
+
   const { loading, error, data } = useQuery(GET_ALL_AUTHUSERS);
 
   useEffect(() => {
@@ -29,8 +25,8 @@ const TeamPage = () => {
 
   const handleSelect = (selectStr) => {
     // console.log(data.authUsers.filter(p => p.person.memberType === selectStr))
-    setFilteredDataSt(data.authUsers.filter(p => p.person.memberType === selectStr));
-  }
+    setFilteredDataSt(data.authUsers.filter((p) => p.person.memberType === selectStr));
+  };
 
   if (loading) {
     return (
@@ -50,36 +46,36 @@ const TeamPage = () => {
         <h1>PGM Team</h1>
         <ThemedPanel />
         <div className="d-flex flex-wrap gap-3">
-            
+
           <TeamRadio onChange={handleSelect} />
-          
+
           {filteredDataSt && filteredDataSt.map((user) => (
-            <div className="col" key={user.userName} >
-        
+            <div className="col" key={user.userName}>
               {user.person && (
                 <>
                   {!!user.person.picture && (
-                    
                     <img src={user.person.picture.url} className="card-img-top" alt="avatar" />
                   )}
                   {!user.person.picture && (
-                    
-                    <img src={`no-img.jpg`} className="card-img-top" alt="avatar" />
+                    <img src="no-img.jpg" className="card-img-top" alt="avatar" />
                   )}
-                  <p>{user.person.firstName} {user.person.lastName}</p>
+                  <p>
+                    {user.person.firstName}
+                    {' '}
+                    {user.person.lastName}
+                  </p>
                   <p>{user.email}</p>
                   <p>{user.person.memberType}</p>
                 </>
               )}
-
               <Link className="btn btn-primary" to={`${ROUTES.Team}/${user.userName}`}>meer info</Link>
             </div>
           ))}
         </div>
       </div>
-    
+
     </div>
   );
-};
+}
 
 export default TeamPage;

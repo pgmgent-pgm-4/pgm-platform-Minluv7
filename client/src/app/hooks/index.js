@@ -1,3 +1,4 @@
-import useFetch from "./use-fetch";
+import useFetch from './use-fetch';
 
-export {useFetch}
+// eslint-disable-next-line import/prefer-default-export
+export { useFetch };

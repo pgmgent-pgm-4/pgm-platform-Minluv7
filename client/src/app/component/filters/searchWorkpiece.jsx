@@ -1,18 +1,20 @@
-import { useState } from "react"
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState } from 'react';
 
-const WorkpieceSearch = ({onSearch}) => {
-const [search, setSearch] = useState('');
+function WorkpieceSearch({ onSearch }) {
+  const [setSearch] = useState('');
 
-const handleSearch = (ev) => {
+  const handleSearch = (ev) => {
     const txt = ev.currentTarget.value;
-    setSearch(txt)
+    setSearch(txt);
 
-    if(typeof onSearch === 'function'){
-        onSearch(txt);
+    if (typeof onSearch === 'function') {
+      onSearch(txt);
     }
-}
+  };
 
-return (
+  return (
     <div>
       <form>
         <div className="mb-3">
@@ -22,7 +24,7 @@ return (
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default WorkpieceSearch
+export default WorkpieceSearch;

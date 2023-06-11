@@ -1,15 +1,20 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 // Import external modules
-import { createContext, useContext, useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, {
+  createContext, useContext, useEffect, useState,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Import custom modules
-import {settings} from '../config/settings';
-import {ROUTES }from '../routes';
+import { settings } from '../config/settings';
+import { ROUTES } from '../routes';
 
 const AuthContext = createContext(null);
 const useAuth = () => useContext(AuthContext);
 
-const AuthProvider = ({children}) => {
+function AuthProvider({ children }) {
   const navigate = useNavigate();
 
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem(settings.AUTH_KEY_LOCALSTORAGE)));
@@ -27,45 +32,46 @@ const AuthProvider = ({children}) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username: email,
-          password: password,
-        })
+          password,
+        }),
       });
-      const user = await response.json();      
+      const user = await response.json();
       console.log(user);
       if (user) {
-        setCurrentUser(user);      
-      }      
+        setCurrentUser(user);
+      }
       // Navigate to user dashboard page
       navigate(ROUTES.USER);
     } catch (error) {
       console.log(error);
-    }    
+    }
   };
 
   const signOut = async () => {
     try {
-      setCurrentUser(null); 
+      setCurrentUser(null);
       const response = await fetch('/api/logout', {
         mode: 'cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(currentUser)
-      });  
+        body: JSON.stringify(currentUser),
+      });
+      // eslint-disable-next-line no-unused-vars
       const userLoggedOut = await response.json();
       console.log('userLoggedOut');
       // Navigate to sign in page
       navigate(ROUTES.AUTH_SIGN_IN);
     } catch (error) {
       console.log(error);
-    } 
+    }
   };
 
   return (
-    <AuthContext.Provider value={{currentUser, signInWithEmailAndPassword, signOut}}>
+    <AuthContext.Provider value={{ currentUser, signInWithEmailAndPassword, signOut }}>
       {children}
     </AuthContext.Provider>
   );
-};
+}
 
 export {
   AuthContext,

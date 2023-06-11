@@ -1,15 +1,15 @@
 // Import external modules
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useQuery,
-} from "@apollo/client";
+} from '@apollo/client';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 // Import custom components
 import { GET_POSTS_WITH_PAGINATION } from '../../graphql';
-import BlogListGrid from "./blog-list-grid";
+import BlogListGrid from './blog-list-grid';
 
-const PostsListPagination = ({}) => {
-  const { data, loading, refetch } = useQuery(GET_POSTS_WITH_PAGINATION, {
+function PostsListPagination() {
+  const { data, refetch } = useQuery(GET_POSTS_WITH_PAGINATION, {
     variables: {
       first: 10,
       skip: 0,
@@ -26,14 +26,13 @@ const PostsListPagination = ({}) => {
   };
 
   useEffect(() => {
-    if (!!data) {
+    if (data) {
       console.log(data);
       setNodes(data.postsConnection.edges.map((edge) => edge.node));
       setPageInfo(data.postsConnection.pageInfo);
     }
     return () => {};
   }, [data]);
-  
 
   useEffect(() => {
     refetch({
@@ -42,11 +41,11 @@ const PostsListPagination = ({}) => {
         skip: offset,
       },
     });
-    return () => {}
+    return () => {};
   }, [offset]);
 
   return (
-     <div>
+    <div>
       <BlogListGrid posts={nodes} />
       {/* <Button color="primary" onClick={() => {
         if (pageInfo.hasPreviousPage) {
@@ -71,12 +70,12 @@ const PostsListPagination = ({}) => {
           />
         </PaginationItem>
         {pageInfo && pageInfo.hasPreviousPage && (
-          <PaginationItem>
-            <PaginationLink
-              href="#"
-              previous
-            />
-          </PaginationItem>
+        <PaginationItem>
+          <PaginationLink
+            href="#"
+            previous
+          />
+        </PaginationItem>
         )}
         {/* <PaginationItem>
           <PaginationLink href="#">
@@ -106,17 +105,17 @@ const PostsListPagination = ({}) => {
           />
         </PaginationItem> */}
         {pageInfo && pageInfo.hasNextPage && (
-          <PaginationItem>
-            <PaginationLink
-              href="#"
-              next
-              onClick={() => handleOffset(offset + 1)}
-            />
-          </PaginationItem>
+        <PaginationItem>
+          <PaginationLink
+            href="#"
+            next
+            onClick={() => handleOffset(offset + 1)}
+          />
+        </PaginationItem>
         )}
       </Pagination>
     </div>
-  )
-};
+  );
+}
 
 export default PostsListPagination;

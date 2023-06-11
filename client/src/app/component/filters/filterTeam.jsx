@@ -1,19 +1,21 @@
-import { useState } from "react";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 
-const TeamRadio = ({ onChange }) => {
+function TeamRadio({ onChange }) {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionChange = (ev) => {
     const text = ev.currentTarget.value;
     setSelectedOption(text);
-    console.log(text)
+    console.log(text);
 
     if (typeof onChange === 'function') {
       onChange(text);
     }
   };
 
-return (
+  return (
     <div>
       <div className="form-check">
         <input
@@ -23,10 +25,10 @@ return (
           id="flexRadioDefault1"
           onChange={handleOptionChange}
           value="Student"
-          checked={selectedOption === "Student"}
+          checked={selectedOption === 'Student'}
         />
         <label className="form-check-label" htmlFor="flexRadioDefault1">
-        Student
+          Student
         </label>
       </div>
       <div className="form-check">
@@ -37,7 +39,7 @@ return (
           id="flexRadioDefault2"
           onChange={handleOptionChange}
           value="Teacher"
-          checked={selectedOption === "Teacher"}
+          checked={selectedOption === 'Teacher'}
         />
         <label className="form-check-label" htmlFor="flexRadioDefault2">
           Teacher
@@ -51,14 +53,14 @@ return (
           id="flexRadioDefault3"
           onChange={handleOptionChange}
           value="Alumnus"
-          checked={selectedOption === "Alumnus"}
+          checked={selectedOption === 'Alumnus'}
         />
         <label className="form-check-label" htmlFor="flexRadioDefault3">
-         Alumnus
+          Alumnus
         </label>
       </div>
     </div>
   );
-};
+}
 
 export default TeamRadio;

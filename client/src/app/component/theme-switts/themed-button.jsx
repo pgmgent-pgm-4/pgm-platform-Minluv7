@@ -1,18 +1,18 @@
-import React from 'react';
+/* eslint-disable no-plusplus */
+import React, { useRef } from 'react';
 import { useThemeContext } from '../../context/theme.context';
-import { useRef } from 'react';
 
-const ThemedButton = () => {
+function ThemedButton() {
   const myRef = useRef(0);
 
   const { isDarkMode } = useThemeContext();
-  const handleClick = (ev) => {
+  const handleClick = () => {
     myRef.current++;
   };
 
   return (
     <button onClick={handleClick} type="button" className={`btn ${isDarkMode ? 'btn-dark' : 'btn-light'}`}>Button</button>
   );
-};
+}
 
 export default ThemedButton;

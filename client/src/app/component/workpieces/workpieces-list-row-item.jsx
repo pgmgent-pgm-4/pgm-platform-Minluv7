@@ -1,18 +1,18 @@
+/* eslint-disable react/prop-types */
 // Import custom modules
-
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { ROUTES } from '../../routes';
 
-
-const WorkpiecesListRowItem = ({id, workpiece, className}) => {
+function WorkpiecesListRowItem({ workpiece, className }) {
   return (
     <div className={`${className}`}>
       <article className="card mb-3">
         <div className="row g-0">
           <div className="col-md-4">
-          { !!workpiece.picture &&  <img src={workpiece.picture.url} className="card-img-top" alt={workpiece.title} /> }
-        { !workpiece.picture &&  <img src={`no-img.jpg`} className="card-img-top" alt={workpiece.title} /> }
+            { !!workpiece.picture && <img src={workpiece.picture.url} className="card-img-top" alt={workpiece.title} /> }
+            { !workpiece.picture && <img src="no-img.jpg" className="card-img-top" alt={workpiece.title} /> }
           </div>
           <div className="col-md-8">
             <div className="card-body">
@@ -23,7 +23,7 @@ const WorkpiecesListRowItem = ({id, workpiece, className}) => {
         </div>
       </article>
     </div>
-  )
-};
+  );
+}
 
 export default WorkpiecesListRowItem;

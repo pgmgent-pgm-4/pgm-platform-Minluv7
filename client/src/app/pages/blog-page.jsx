@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { ThemedPanel } from '../component/theme-switts';
 
 // Import internal modules
-import { BlogListGrid, BlogListRow, PostsListPagination } from '../component/posts';
+import { BlogListGrid, BlogListRow, PostsListRelayCursor } from '../component/posts';
 import { useThemeContext } from '../context/theme.context';
 import { GET_ALLBLOGS } from '../graphql';
 
@@ -39,7 +39,7 @@ function BlogPage() {
           </button>
           {isGridView && data && <BlogListGrid posts={data.posts} className="row" />}
           {!isGridView && data && <BlogListRow posts={data.posts} className="row" />}
-          <PostsListPagination />
+          <PostsListRelayCursor />
         </div>
       </div>
 

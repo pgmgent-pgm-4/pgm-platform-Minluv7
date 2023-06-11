@@ -255,17 +255,12 @@ query firstServices($first: Int = 1) {
 }
 `;
 
-export const GET_POSTS_WITH_PAGINATION = gql`
-query GetPostsWithPagination($first: Int = 10, $skip: Int = 0) {
-  postsConnection(first: $first, skip: $skip) {
+export const GET_POSTS_WITH_CURSOR = gql`
+query GetPostWithRelayCursor($first: Int = 10, $after: String = null) {
+ postsConnection(first: $first, after: $after) {
     pageInfo {
       hasNextPage
       endCursor
-      hasPreviousPage
-      pageSize
-    }
-    aggregate {
-      count
     }
     edges {
       node {
@@ -275,5 +270,4 @@ query GetPostsWithPagination($first: Int = 10, $skip: Int = 0) {
     }
   }
 }
-
 `;

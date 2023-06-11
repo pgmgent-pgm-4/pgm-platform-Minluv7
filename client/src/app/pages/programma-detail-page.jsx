@@ -1,3 +1,7 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
+
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -35,14 +39,20 @@ function ProgrammaDetailPage() {
           <h2>{data.educationProgramme.description}</h2>
           <p>{data.educationProgramme.academicYear}</p>
           {data.educationProgramme.courses && (
-          <div>
+          <div className="row m-2 d-flex justify-content-center">
             {data.educationProgramme.courses.map((course) => (
-              <div key={course.id} className="container col">
-                <p>{course.name}</p>
+              <div key={course.id} className="card col-sm-3 m-1">
+                <h3>{course.name}</h3>
                 <p>{course.semester}</p>
                 <p>{course.period}</p>
-                <p>{course.studypoints}</p>
-                <Link className="" to={course.ectsFiches}>EctsFiches</Link>
+                <p>Studiepunten: {course.studypoints}</p>
+                <Link className="btn btn-outline-primary" to={course.ectsFiches}>EctsFiches</Link>
+                {course.programmeLine && (
+                    <div style={{ backgroundColor: course.programmeLine.colorCode }}>
+                      <h4>{course.programmeLine.name}</h4>
+                      <p>{course.programmeLine.descriptoin}</p>
+                    </div>
+                  )}
               </div>
             ))}
           </div>

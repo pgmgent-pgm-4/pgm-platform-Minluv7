@@ -26,7 +26,7 @@ function UserContextNavigation() {
               {!!currentUser
                 && (
                 <span className="user">
-                  <span className="user__avatar">{currentUser.autUser.picture.url}</span>
+                  <span className="user__avatar" />
                   <span className="user__username">{currentUser.userName}</span>
                 </span>
                 )}

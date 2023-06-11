@@ -32,7 +32,6 @@ query AuthUsers {
       picture {
         url
       }
-
     }
   }
 }
@@ -117,7 +116,7 @@ export const FIRST_BLOGS = gql`
 
 export const GET_EDUCATION_PROGRAM = gql`
 query educationProgrammeById($programmeId: ID) {
-  educationProgramme(where: {id: $programmeId}) {
+  educationProgramme(where: { id: $programmeId }) {
     description
     academicYear
     name
@@ -129,9 +128,15 @@ query educationProgrammeById($programmeId: ID) {
       period
       studypoints
       semester
+      programmeLine {
+        name
+        descriptoin
+        colorCode
+      }
     }
   }
-}`;
+}
+`;
 
 export const GETALLEDUCATIONPROGRAMME = gql`
 query getAllEducationProgramme {

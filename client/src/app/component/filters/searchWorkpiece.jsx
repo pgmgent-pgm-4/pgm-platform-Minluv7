@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { Label } from 'reactstrap';
 
 function WorkpieceSearch({ onSearch }) {
-  const [setSearch] = useState('');
+  const [search, setSearch] = useState('');
 
   const handleSearch = (ev) => {
     const txt = ev.currentTarget.value;
@@ -18,7 +19,7 @@ function WorkpieceSearch({ onSearch }) {
     <div>
       <form>
         <div className="mb-3">
-          <label htmlFor="txtSearch" className="form-label">Search</label>
+          <Label htmlFor="txtSearch" className="form-label">Search</Label>
           <input type="text" className="form-control" id="txtSearch" aria-describedby="emailHelp" onChange={(ev) => handleSearch(ev)} />
           <div id="emailHelp" className="form-text">Write your search here.</div>
         </div>

@@ -30,7 +30,6 @@ function NavUser() {
         && (
         <button onClick={() => logIn()}>Login</button>
         )}
-
       <Nav>
         <UserContextNavigation />
       </Nav>

@@ -1,13 +1,12 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-// Import external modules
-import React, {
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react/react-in-jsx-scope */
+import {
   createContext, useContext, useEffect, useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// Import custom modules
 import { settings } from '../config/settings';
 import { ROUTES } from '../routes';
 
@@ -16,7 +15,6 @@ const useAuth = () => useContext(AuthContext);
 
 function AuthProvider({ children }) {
   const navigate = useNavigate();
-
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem(settings.AUTH_KEY_LOCALSTORAGE)));
 
   useEffect(() => {
@@ -35,11 +33,14 @@ function AuthProvider({ children }) {
           password,
         }),
       });
+
       const user = await response.json();
       console.log(user);
+
       if (user) {
         setCurrentUser(user);
       }
+
       // Navigate to user dashboard page
       navigate(ROUTES.USER);
     } catch (error) {
@@ -56,9 +57,10 @@ function AuthProvider({ children }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentUser),
       });
-      // eslint-disable-next-line no-unused-vars
+
       const userLoggedOut = await response.json();
       console.log('userLoggedOut');
+
       // Navigate to sign in page
       navigate(ROUTES.AUTH_SIGN_IN);
     } catch (error) {
@@ -73,8 +75,4 @@ function AuthProvider({ children }) {
   );
 }
 
-export {
-  AuthContext,
-  AuthProvider,
-  useAuth,
-};
+export { AuthContext, AuthProvider, useAuth };

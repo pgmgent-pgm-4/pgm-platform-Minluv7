@@ -1,12 +1,15 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
+import React from 'react';
 import { useQuery } from '@apollo/client';
 import { Spinner } from 'reactstrap';
-import React from 'react';
+
 import { ThemedPanel } from '../component/theme-switts';
 import {
   FirstTraining, FirstBlogs, FirstServices, FirstWorkpieces,
 } from '../component/home';
 import { useThemeContext } from '../context/theme.context';
+import { SocialMedia } from '../component/social';
 import {
   FIRST_TRAINING, FIRST_BLOGS, FIRST_SERVICES, FIRST_WORKPIECE,
 } from '../graphql';
@@ -82,6 +85,7 @@ function HomePage() {
       <FirstBlogs posts={dat.posts} />
       <FirstServices services={servicesData.services} />
       <FirstWorkpieces workpieces={workpieceData.workpieces} />
+      <SocialMedia />
     </div>
   );
 }

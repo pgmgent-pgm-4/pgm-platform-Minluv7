@@ -5,6 +5,7 @@ import { Spinner } from 'reactstrap';
 import { WorkpiecesListGrid, WorkpiecesListRow } from '../component/workpieces';
 import { ThemedPanel } from '../component/theme-switts';
 import { useThemeContext } from '../context/theme.context';
+import { SocialMedia } from '../component/social';
 import { GET_ALL_WORKPIECES } from '../graphql';
 
 function WerkstukkenPage() {
@@ -37,7 +38,7 @@ function WerkstukkenPage() {
         {isGridView && data && <WorkpiecesListGrid workpieces={data.workpieces} className="row" />}
         {!isGridView && data && <WorkpiecesListRow workpieces={data.workpieces} className="row" />}
       </div>
-
+      <SocialMedia />
     </div>
   );
 }

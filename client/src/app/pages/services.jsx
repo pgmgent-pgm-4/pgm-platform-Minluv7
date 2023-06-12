@@ -5,6 +5,7 @@ import { Spinner } from 'reactstrap';
 import { ThemedPanel } from '../component/theme-switts';
 import { ServicesListRow, ServicesListGrid } from '../component/services';
 import { useThemeContext } from '../context/theme.context';
+import { SocialMedia } from '../component/social';
 import { GET_ALL_SERVICES } from '../graphql';
 
 function SercivesPage() {
@@ -34,7 +35,7 @@ function SercivesPage() {
       </button>
       {isGridView && data && <ServicesListGrid services={data.services} className="row" />}
       {!isGridView && data && <ServicesListRow services={data.services} className="row" />}
-
+      <SocialMedia />
     </div>
   );
 }

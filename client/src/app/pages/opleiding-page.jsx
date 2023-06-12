@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemedPanel } from '../component/theme-switts';
 import { Training } from '../component/training';
 import { useThemeContext } from '../context/theme.context';
+import { SocialMedia } from '../component/social';
 
 function OpleidingPage() {
   const { isDarkMode } = useThemeContext();
@@ -12,7 +13,7 @@ function OpleidingPage() {
       <div className="container">
         <Training />
       </div>
-
+      <SocialMedia />
     </div>
   );
 }

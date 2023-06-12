@@ -4,6 +4,7 @@ import { Spinner } from 'reactstrap';
 import { useThemeContext } from '../context/theme.context';
 import { ThemedPanel } from '../component/theme-switts';
 import { EducationProgrammes } from '../component/programme';
+import { SocialMedia } from '../component/social';
 import { GETALLEDUCATIONPROGRAMME } from '../graphql';
 
 function ProgrammaPage() {
@@ -30,6 +31,7 @@ function ProgrammaPage() {
       {loading ? <Spinner>LOADING</Spinner> : null}
 
       <EducationProgrammes educationProgrammes={data.educationProgrammes} />
+      <SocialMedia />
     </div>
   );
 }

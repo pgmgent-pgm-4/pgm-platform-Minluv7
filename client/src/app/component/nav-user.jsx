@@ -1,19 +1,20 @@
+/* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Nav } from 'reactstrap';
-import { useUserContext } from '../context/user.context';
+// import { useUserContext } from '../context/user.context';
 import { UserContextNavigation } from './auth';
 
 function NavUser() {
-  const { user, logIn, logOut } = useUserContext();
+  // const { user, logIn, logOut } = useUserContext();
 
   return (
 
     <div className="nav-user">
 
-      {user
+      {/* {user
         && (
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -29,7 +30,7 @@ function NavUser() {
       {!user
         && (
         <button onClick={() => logIn()}>Login</button>
-        )}
+        )} */}
       <Nav>
         <UserContextNavigation />
       </Nav>

@@ -7,6 +7,7 @@ import { useThemeContext } from '../context/theme.context';
 import { GET_ALL_AUTHUSERS } from '../graphql';
 import './teamPage.css';
 import { TeamRadio } from '../component/filters';
+import { SocialMedia } from '../component/social';
 import { ROUTES } from '../routes';
 
 function TeamPage() {
@@ -73,7 +74,7 @@ function TeamPage() {
           ))}
         </div>
       </div>
-
+      <SocialMedia />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { Spinner } from 'reactstrap';
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { ThemedPanel } from '../component/theme-switts';
-
+import { SocialMedia } from '../component/social';
 // Import internal modules
 import { BlogListGrid, BlogListRow, PostsListRelayCursor } from '../component/posts';
 import { useThemeContext } from '../context/theme.context';
@@ -40,6 +40,7 @@ function BlogPage() {
           {isGridView && data && <BlogListGrid posts={data.posts} className="row" />}
           {!isGridView && data && <BlogListRow posts={data.posts} className="row" />}
           <PostsListRelayCursor />
+          <SocialMedia />
         </div>
       </div>
 
